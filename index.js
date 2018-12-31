@@ -20,5 +20,13 @@ const monologueLines = [
 let totalBatteries = batteryBatches.reduce((total, current) => total + current);
 
 let reducer = (tally, line) => {
-  if (!)
+  let count = line.split(" ").length
+  if (!tally[count]) {
+    tally[count] = 1
+  } else {
+    tally[count] += 1
+  }
+  return tally
 }
+
+let wordCountMap = monologueLines.reduce(reducer, {})
